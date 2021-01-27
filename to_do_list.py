@@ -1,3 +1,14 @@
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 user_choice = -1
 tasks = []
 tasks.append("Pierwsze zadanie")
@@ -19,6 +30,11 @@ def remove_task():
     show_tasks()
     user_choice_index_task = int(input("Poadaj numer zadania które chcesz usunąć: "))
     tasks.pop(user_choice_index_task)
+
+def show_error():
+     print(f"{bcolors.FAIL}Błędna pozycja w menu{bcolors.ENDC}")
+     print()
+
 print()
 print("Witamy w aplikacji To Do List")
 print()
@@ -31,7 +47,8 @@ while user_choice != 4:
     elif user_choice == 3:
         remove_task()
     else:
-        print("Błędna pozycja w menu")
+       show_error()
+       
 
     print("1. Wyświtl wszytkie zadania")
     print("2. Dodaj zadanie")
