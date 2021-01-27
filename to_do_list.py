@@ -9,7 +9,6 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-user_choice = -1
 tasks = []
 tasks.append("Pierwsze zadanie")
 tasks.append("Drugie zadanie")
@@ -35,21 +34,7 @@ def show_error():
      print(f"{bcolors.FAIL}Błędna pozycja w menu{bcolors.ENDC}")
      print()
 
-print()
-print("Witamy w aplikacji To Do List")
-print()
-while user_choice != 4:
-    if user_choice == 1:
-        show_tasks()
-        print()
-    elif user_choice == 2:
-        add_task()
-    elif user_choice == 3:
-        remove_task()
-    else:
-       show_error()
-       
-
+def show_menu():
     print("1. Wyświtl wszytkie zadania")
     print("2. Dodaj zadanie")
     print("3. Usuń zadanie")
@@ -57,5 +42,23 @@ while user_choice != 4:
     print()
     user_choice = int(input("Wybierz opcję z menu: "))
     print()
+    return user_choice
+
+print()
+print("Witamy w aplikacji To Do List")
+print()
+while True:
+    user_choice = show_menu()
+    if user_choice == 1:
+        show_tasks()
+        print()
+    elif user_choice == 2:
+        add_task()
+    elif user_choice == 3:
+        remove_task()
+    elif user_choice == 4:
+        break
+    else:
+       show_error()
 
 
