@@ -6,14 +6,19 @@ tasks.append("Trzecie  zadanie")
 tasks.append("Czwarte zadanie")
 
 def show_tasks():
+    index = 0
     for task in tasks:
-        print(task)
+        print(task + " - [" + str(index) + "]")
+        index += 1
 
 def add_task():
     user_task = input("Podaj treść zadania: ")
     tasks.append(user_task)
 
-
+def remove_task():
+    show_tasks()
+    user_choice_index_task = int(input("Poadaj numer zadania które chcesz usunąć: "))
+    tasks.pop(user_choice_index_task)
 print()
 print("Witamy w aplikacji To Do List")
 print()
@@ -24,7 +29,7 @@ while user_choice != 4:
     elif user_choice == 2:
         add_task()
     elif user_choice == 3:
-        print("Usuń zadanie")
+        remove_task()
     else:
         print("Błędna pozycja w menu")
 
