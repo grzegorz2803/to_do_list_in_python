@@ -42,12 +42,12 @@ def remove_task():
     show_tasks()
     print()
     user_choice_index_task = int(input("Poadaj numer zadania które chcesz usunąć: "))
-    if user_choice_index_task > len(tasks)-1:
-        show_error()
-    else:
+    try:
         remove_user_task = tasks.pop(user_choice_index_task)
         print(f"{bcolors.OKBLUE}" + remove_user_task + f" zostało usunięte{bcolors.ENDC}")
         print()
+    except IndexError:
+        print(f"{bcolors.FAIL}Nieprawidłowy numer zadania {bcolors.ENDC}")
 
 def show_error():
      print(f"{bcolors.FAIL}Nieprawidłowa wartość {bcolors.ENDC}")
