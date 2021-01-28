@@ -1,8 +1,8 @@
 class bcolors:
     HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
+    OKBLUE = '\033[34m'
     OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
+    OKGREEN = '\033[32m'
     WARNING = '\033[93m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
@@ -24,11 +24,16 @@ def show_tasks():
 def add_task():
     user_task = input("Podaj treść zadania: ")
     tasks.append(user_task)
+    print(f"{bcolors.OKGREEN}Zadanie zostało dodane{bcolors.ENDC}")
+    print()
 
 def remove_task():
     show_tasks()
+    print()
     user_choice_index_task = int(input("Poadaj numer zadania które chcesz usunąć: "))
-    tasks.pop(user_choice_index_task)
+    remove_user_task = tasks.pop(user_choice_index_task)
+    print(f"{bcolors.OKBLUE}" + remove_user_task + f" zostało usunięte{bcolors.ENDC}")
+    print()
 
 def show_error():
      print(f"{bcolors.FAIL}Błędna pozycja w menu{bcolors.ENDC}")
