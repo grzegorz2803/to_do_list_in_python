@@ -10,12 +10,15 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 tasks = []
-tasks.append("Pierwsze zadanie")
-tasks.append("Drugie zadanie")
-tasks.append("Trzecie  zadanie")
-tasks.append("Czwarte zadanie")
+# tasks.append("Pierwsze zadanie")
+# tasks.append("Drugie zadanie")
+# tasks.append("Trzecie  zadanie")
+# tasks.append("Czwarte zadanie")
 
 def show_tasks():
+    file = open("tasks.txt")
+    for line in file:
+        tasks.append(line.strip())
     index = 0
     for task in tasks:
         print(task + " - [" + str(index) + "]")
