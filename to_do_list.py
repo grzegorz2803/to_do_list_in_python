@@ -49,6 +49,12 @@ def show_menu():
     print()
     return user_choice
 
+def save_tasks_to_file():
+    file = open("tasks.txt", "w+")
+    for task in tasks:
+        file.write(task + "\n")
+    file.close()
+
 print()
 print("Witamy w aplikacji To Do List")
 print()
@@ -62,6 +68,7 @@ while True:
     elif user_choice == 3:
         remove_task()
     elif user_choice == 4:
+        save_tasks_to_file()
         break
     else:
        show_error()
