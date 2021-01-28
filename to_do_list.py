@@ -10,6 +10,14 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 tasks = []
+
+def start_aplication():
+    print()
+    print("Witamy w aplikacji To Do List")
+    print()
+    read_from_file()
+    print()
+
 def read_from_file():
     try: 
         file = open("tasks.txt")
@@ -58,11 +66,7 @@ def save_tasks_to_file():
         file.write(task + "\n")
     file.close()
 
-print()
-print("Witamy w aplikacji To Do List")
-print()
-read_from_file()
-print()
+start_aplication()
 while True:
     print()
     user_choice = show_menu()
