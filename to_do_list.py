@@ -10,17 +10,19 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 tasks = []
-
-def show_tasks():
+def read_from_file():
     try: 
         file = open("tasks.txt")
         for line in file:
             tasks.append(line.strip())
     except:
-        index = 0
-        for task in tasks:
-            print(task + " - [" + str(index) + "]")
-            index += 1
+        print(f"{bcolors.WARNING} Bark zadań  do wyświetlenia. Dodaj nowe zadania{bcolors.ENDC}")
+
+def show_tasks():
+    index = 0
+    for task in tasks:
+        print(task + " - [" + str(index) + "]")
+        index += 1
 
 def add_task():
     user_task = input("Podaj treść zadania: ")
@@ -59,7 +61,10 @@ def save_tasks_to_file():
 print()
 print("Witamy w aplikacji To Do List")
 print()
+read_from_file()
+print()
 while True:
+    print()
     user_choice = show_menu()
     if user_choice == 1:
         show_tasks()
