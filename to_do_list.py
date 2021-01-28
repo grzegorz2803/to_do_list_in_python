@@ -41,16 +41,19 @@ def add_task():
 def remove_task():
     show_tasks()
     print()
-    user_choice_index_task = int(input("Poadaj numer zadania które chcesz usunąć: "))
     try:
-        remove_user_task = tasks.pop(user_choice_index_task)
-        print(f"{bcolors.OKBLUE}" + remove_user_task + f" zostało usunięte{bcolors.ENDC}")
-        print()
-    except IndexError:
-        print(f"{bcolors.FAIL}Nieprawidłowy numer zadania {bcolors.ENDC}")
+        user_choice_index_task = int(input("Poadaj numer zadania które chcesz usunąć: "))
+        try:
+            remove_user_task = tasks.pop(user_choice_index_task)
+            print(f"{bcolors.OKBLUE}" + remove_user_task + f" zostało usunięte{bcolors.ENDC}")
+            print()
+        except IndexError:
+            print(f"{bcolors.FAIL}Nieprawidłowy numer zadania {bcolors.ENDC}")
+    except ValueError:
+         print(f"{bcolors.FAIL}Nieprawidłowa wartość {bcolors.ENDC}")
 
 def show_error():
-     print(f"{bcolors.FAIL}Nieprawidłowa wartość {bcolors.ENDC}")
+     print(f"{bcolors.FAIL}Nieprawidłowa wartość!!!!!! {bcolors.ENDC}")
      print()
 
 def show_menu():
@@ -59,9 +62,12 @@ def show_menu():
     print("3. Usuń zadanie")
     print("4. Wyjdź")
     print()
-    user_choice = int(input("Wybierz opcję z menu: "))
-    print()
-    return user_choice
+    try:
+        user_choice = int(input("Wybierz opcję z menu: "))
+        print()
+        return user_choice
+    except ValueError:
+         print(f"{bcolors.FAIL}Nieprawidłowa wartość  {bcolors.ENDC}")
 
 def save_tasks_to_file():
     file = open("tasks.txt", "w+")
