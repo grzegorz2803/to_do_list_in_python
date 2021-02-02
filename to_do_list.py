@@ -75,6 +75,8 @@ def save_tasks_to_file():
     for task in tasks:
         file.write(task + "\n")
     file.close()
+    print(f"{bcolors.OKGREEN}Zadania zostały zakualizowane w pliku{bcolors.ENDC}")
+    print("Do zobaczenia")
 
 start_aplication()
 while True:
